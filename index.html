@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Referent Advisor Pvt Ltd</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0D1B2A;
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --cream: #FAF8F3;
+      --mid: #6B7280;
+      --white: #FFFFFF;
+      --border: #E5E0D5;
+      --card-bg: #F5F2EC;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 60px; height: 64px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: var(--gold);
+      letter-spacing: 0.01em;
+      text-decoration: none;
+    }
+    .logo span { color: var(--white); font-size: 0.75rem; display: block; font-family: 'Inter', sans-serif; font-weight: 400; letter-spacing: 0.08em; margin-top: -2px; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: #CBD5E1; text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold); color: var(--navy);
+      border: none; border-radius: 6px;
+      padding: 9px 22px; font-size: 0.875rem; font-weight: 600;
+      cursor: pointer; text-decoration: none; transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1C3150 60%, #2A4A6E 100%);
+      color: var(--white);
+      padding: 100px 60px 90px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+      min-height: 90vh;
+    }
+    .hero-label {
+      display: inline-block;
+      background: rgba(201,168,76,0.18);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 5px 16px; border-radius: 20px; font-size: 0.78rem;
+      font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero p {
+      color: #B8C5D6; font-size: 1.05rem; line-height: 1.75;
+      max-width: 480px; margin-bottom: 36px;
+    }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold); color: var(--navy);
+      padding: 14px 30px; border-radius: 8px; font-weight: 700;
+      text-decoration: none; font-size: 0.95rem; transition: background .2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.3); color: var(--white);
+      padding: 14px 30px; border-radius: 8px; font-weight: 600;
+      text-decoration: none; font-size: 0.95rem; transition: border-color .2s, color .2s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-badges {
+      margin-top: 40px; display: flex; gap: 28px; flex-wrap: wrap;
+    }
+    .badge {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.82rem; color: #9BB0C7;
+    }
+    .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+
+    /* Hero right card */
+    .hero-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 36px;
+      backdrop-filter: blur(8px);
+    }
+    .hero-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; margin-bottom: 24px; color: var(--gold);
+    }
+    .service-pill {
+      display: inline-block;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.35);
+      color: var(--gold-light);
+      padding: 8px 18px; border-radius: 24px;
+      font-size: 0.82rem; font-weight: 500;
+      margin: 6px 4px; cursor: pointer;
+      transition: background .2s;
+    }
+    .service-pill:hover { background: rgba(201,168,76,0.25); }
+    .hero-rating {
+      margin-top: 28px; padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .stars { color: var(--gold); font-size: 1.1rem; }
+    .hero-rating p { font-size: 0.82rem; color: #9BB0C7; }
+    .hero-rating strong { color: var(--white); }
+
+    /* ── SECTION WRAPPERS ── */
+    section { padding: 90px 60px; }
+    .section-label {
+      text-transform: uppercase; letter-spacing: 0.1em;
+      font-size: 0.75rem; font-weight: 700;
+      color: var(--gold); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1.2; margin-bottom: 16px; color: var(--navy);
+    }
+    .section-sub {
+      color: var(--mid); font-size: 1rem; line-height: 1.7;
+      max-width: 600px; margin-bottom: 50px;
+    }
+    .divider { width: 56px; height: 3px; background: var(--gold); border-radius: 2px; margin: 16px 0 50px; }
+
+    /* ── SERVICES ── */
+    .services-bg { background: var(--cream); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 26px;
+      transition: box-shadow .25s, transform .25s;
+      text-decoration: none; color: inherit; display: block;
+    }
+    .service-card:hover { box-shadow: 0 8px 28px rgba(13,27,42,0.1); transform: translateY(-3px); }
+    .service-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; margin-bottom: 16px;
+    }
+    .service-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
+    .service-card p { font-size: 0.85rem; color: var(--mid); line-height: 1.6; }
+    .service-card .arrow {
+      display: inline-flex; align-items: center; gap: 4px;
+      color: var(--gold); font-size: 0.8rem; font-weight: 600;
+      margin-top: 14px; text-decoration: none;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-bg { background: var(--navy); color: var(--white); }
+    .how-bg .section-title { color: var(--white); }
+    .how-bg .section-sub { color: #9BB0C7; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .step { position: relative; text-align: center; }
+    .step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      color: var(--navy); font-weight: 800; font-size: 1.2rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .step h4 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; color: var(--white); }
+    .step p { font-size: 0.85rem; color: #9BB0C7; line-height: 1.65; }
+    .step-connector {
+      position: absolute; top: 27px; left: calc(50% + 30px); right: calc(-50% + 30px);
+      height: 2px; background: rgba(201,168,76,0.3);
+    }
+    .step:last-child .step-connector { display: none; }
+
+    /* ── WHY US ── */
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .why-list { list-style: none; display: flex; flex-direction: column; gap: 20px; margin-top: 10px; }
+    .why-list li {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: var(--white); border: 1px solid var(--border);
+      padding: 18px 22px; border-radius: 10px;
+    }
+    .check { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+    .why-list li div h5 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+    .why-list li div p { font-size: 0.83rem; color: var(--mid); line-height: 1.6; }
+    .why-right {
+      background: linear-gradient(160deg, var(--navy) 0%, #1C3150 100%);
+      border-radius: 16px; padding: 48px 40px; color: var(--white);
+    }
+    .why-right h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; color: var(--gold); margin-bottom: 24px;
+    }
+    .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .stat { text-align: center; padding: 24px 16px; background: rgba(255,255,255,0.05); border-radius: 10px; }
+    .stat .num { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold); font-weight: 700; }
+    .stat .lbl { font-size: 0.78rem; color: #9BB0C7; margin-top: 4px; }
+
+    /* ── TESTIMONIALS ── */
+    .testi-bg { background: var(--card-bg); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testi-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 26px;
+    }
+    .testi-stars { color: var(--gold); font-size: 1rem; margin-bottom: 14px; }
+    .testi-card blockquote { font-size: 0.88rem; color: var(--mid); line-height: 1.7; margin-bottom: 20px; }
+    .testi-card blockquote::before { content: '\201C'; font-size: 1.6rem; color: var(--gold); line-height: 0; vertical-align: -0.4em; margin-right: 2px; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--navy); font-weight: 700; font-size: 0.95rem; flex-shrink: 0;
+    }
+    .testi-author h5 { font-size: 0.88rem; font-weight: 700; color: var(--navy); }
+    .testi-author p { font-size: 0.78rem; color: var(--mid); }
+
+    /* ── STATS BANNER ── */
+    .stats-banner {
+      background: var(--navy); color: var(--white);
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      text-align: center; gap: 0;
+    }
+    .stats-banner > div {
+      padding: 48px 20px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .stats-banner > div:last-child { border-right: none; }
+    .stats-banner .big { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--gold); font-weight: 700; }
+    .stats-banner .lbl { font-size: 0.82rem; color: #9BB0C7; margin-top: 6px; }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 740px; }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 12px; overflow: hidden;
+      background: var(--white);
+    }
+    .faq-q {
+      width: 100%; background: none; border: none;
+      text-align: left; padding: 18px 22px;
+      font-size: 0.93rem; font-weight: 600; color: var(--navy);
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer; gap: 12px;
+    }
+    .faq-q .icon { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; transition: transform .25s; }
+    .faq-a { display: none; padding: 0 22px 18px; font-size: 0.86rem; color: var(--mid); line-height: 1.7; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-q .icon { transform: rotate(45deg); }
+
+    /* ── FOUNDERS ── */
+    .founders-bg { background: linear-gradient(135deg, var(--navy) 0%, #1C3150 100%); color: var(--white); }
+    .founders-bg .section-title { color: var(--white); }
+    .founders-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: center; }
+    .founders-text p { color: #B8C5D6; font-size: 1rem; line-height: 1.8; margin-bottom: 16px; }
+    .founders-text .sig {
+      margin-top: 28px; color: var(--gold);
+      font-family: 'Playfair Display', serif; font-size: 1.1rem;
+    }
+    .founders-img-block {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .f-stat {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 12px; padding: 28px 20px; text-align: center;
+    }
+    .f-stat .num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); font-weight: 700; }
+    .f-stat .lbl { font-size: 0.78rem; color: #9BB0C7; margin-top: 5px; }
+
+    /* ── CTA ── */
+    .cta-strip {
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+      text-align: center; padding: 60px 40px;
+    }
+    .cta-strip h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--navy); margin-bottom: 12px; }
+    .cta-strip p { color: rgba(13,27,42,0.7); margin-bottom: 28px; font-size: 1rem; }
+    .cta-strip a {
+      display: inline-block; background: var(--navy); color: var(--white);
+      padding: 14px 36px; border-radius: 8px; font-weight: 700;
+      text-decoration: none; font-size: 0.95rem; transition: opacity .2s;
+    }
+    .cta-strip a:hover { opacity: 0.85; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #070E17; color: #9BB0C7;
+      padding: 64px 60px 36px;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1.4fr;
+      gap: 40px; margin-bottom: 48px;
+    }
+    .footer-brand .logo-footer {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; color: var(--gold); margin-bottom: 14px; display: block;
+    }
+    .footer-brand .tagline { font-size: 0.85rem; color: #6B7280; line-height: 1.7; max-width: 260px; }
+    footer h5 { color: var(--white); font-size: 0.9rem; font-weight: 700; margin-bottom: 16px; }
+    footer ul { list-style: none; }
+    footer ul li { margin-bottom: 10px; }
+    footer ul a { color: #6B7280; text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+    footer ul a:hover { color: var(--gold); }
+    .footer-contact p { font-size: 0.85rem; color: #6B7280; margin-bottom: 8px; }
+    .footer-contact a { color: #9BB0C7; text-decoration: none; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 28px; display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom p { font-size: 0.8rem; color: #4B5563; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: #4B5563; text-decoration: none; font-size: 0.8rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .disclaimer {
+      border-top: 1px solid rgba(255,255,255,0.04);
+      margin-top: 20px; padding-top: 16px;
+      font-size: 0.76rem; color: #374151; line-height: 1.65;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 60px 24px; min-height: auto; }
+      .hero-card { display: none; }
+      section { padding: 60px 24px; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .step-connector { display: none; }
+      .why-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .stats-banner { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .founders-inner { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .steps { grid-template-columns: 1fr; }
+      .stats-banner { grid-template-columns: 1fr 1fr; }
+      .stat-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    Referent Advisor
+    <span>PVT LTD</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#form" class="nav-cta">Consult an Expert</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <span class="hero-label">Trusted Business Advisors</span>
+    <h1>Setup Your Business <em>With Ease</em> — With Us</h1>
+    <p>At Referent Advisor Pvt Ltd, we simplify the registration and compliance process, so you can focus on building your dream business.</p>
+    <div class="hero-btns">
+      <a href="#form" class="btn-primary">Register Your Business</a>
+      <a href="#services" class="btn-outline">View Services</a>
+    </div>
+    <div class="hero-badges">
+      <span class="badge"><span class="dot"></span>Hassle-Free & Guided Process</span>
+      <span class="badge"><span class="dot"></span>Transparent Pricing</span>
+      <span class="badge"><span class="dot"></span>Fast Turnaround</span>
+      <span class="badge"><span class="dot"></span>Dedicated Support</span>
+    </div>
+  </div>
+  <div class="hero-card">
+    <h3>Popular Services</h3>
+    <span class="service-pill">Private Limited Registration</span>
+    <span class="service-pill">LLP Registration</span>
+    <span class="service-pill">OPC Registration</span>
+    <span class="service-pill">Trademark Registration</span>
+    <span class="service-pill">GST Registration</span>
+    <span class="service-pill">Udyam Registration</span>
+    <span class="service-pill">PAN Card</span>
+    <span class="service-pill">ITR Filing</span>
+    <div class="hero-rating">
+      <span class="stars">★★★★★</span>
+      <p><strong>Rated 5/5</strong> across 100+ reviews on Google</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-bg" id="services">
+  <p class="section-label">Our Range of Services</p>
+  <h2 class="section-title">We Make Business Setup Easy</h2>
+  <div class="divider"></div>
+  <p class="section-sub">From company formation to accounting and compliance — we handle it all, so you don't have to.</p>
+  <div class="services-grid">
+    <a href="#" class="service-card">
+      <div class="service-icon">🏢</div>
+      <h4>Private Limited Registration</h4>
+      <p>Incorporate your Pvt Ltd company with expert guidance and fast processing.</p>
+      <span class="arrow">Learn More →</span>
+    </a>
+    <a href="#" class="service-card">
+      <div class="service-icon">🤝</div>
+      <h4>LLP Registration</h4>
+      <p>Form a Limited Liability Partnership with full legal support from our team.</p>
+      <span class="arrow">Learn More →</span>
+    </a>
+    <a href="#" class="service-card">
+      <div class="service-icon">👤</div>
+      <h4>OPC Registration</h4>
+      <p>Start a One Person Company seamlessly — ideal for solo entrepreneurs.</p>
+      <span class="arrow">Learn More →</span>
+    </a>
+    <a href="#" class="service-card">
+      <div class="service-icon">™️</div>
+      <h4>Trademark Registration</h4>
+      <p>Protect your brand identity with a registered trademark across India.</p>
+      <span class="arrow">Learn More →</span>
+    </a>
+    <a href="#" class="service-card">
+      <div class="service-icon">🧾</div>
+      <h4>GST Registration</h4>
+      <p>Apply for GST with ease and ensure full compliance with tax regulations.</p>
+      <span class="arrow">Learn More →</span>
+    </a>
+    <a href="#" class="service-card">
+      <div class="service-icon">🏭</div>
+      <h4>Udyam Registration</h4>
+      <p>Unlock MSME benefits and government schemes with Udyam Registration.</p>
+      <span class="arrow">Learn More →</span>
+    </a>
+    <a href="#" class="service-card">
+      <div class="service-icon">🪪</div>
+      <h4>PAN Card Registration</h4>
+      <p>Apply for your Permanent Account Number quickly and accurately.</p>
+      <span class="arrow">Learn More →</span>
+    </a>
+    <a href="#" class="service-card">
+      <div class="service-icon">📊</div>
+      <h4>ITR Filing</h4>
+      <p>File your Income Tax Return on time with our accurate, reliable support.</p>
+      <span class="arrow">Learn More →</span>
+    </a>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-bg" id="how">
+  <p class="section-label" style="color:var(--gold)">How It Works</p>
+  <h2 class="section-title">Simple Steps to Get Started</h2>
+  <div class="divider"></div>
+  <p class="section-sub">We simplify your business needs in just a few steps, ensuring a smooth, hassle-free experience from start to finish.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Place an Order</h4>
+      <p>Choose your service and place an order to get started. It's the first and easiest step.</p>
+      <div class="step-connector"></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Documentation</h4>
+      <p>Submit the required documents to us so we can begin processing your application.</p>
+      <div class="step-connector"></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Processing</h4>
+      <p>We handle the entire process while keeping you updated at every stage.</p>
+      <div class="step-connector"></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>Delivery</h4>
+      <p>Receive your final deliverables — certificates, registrations, and all documents.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="why-grid">
+    <div>
+      <p class="section-label">What Makes Us the Best?</p>
+      <h2 class="section-title">Built on Trust, Speed & Accuracy</h2>
+      <div class="divider"></div>
+      <ul class="why-list">
+        <li>
+          <span class="check">✦</span>
+          <div>
+            <h5>A Trusted History of Success</h5>
+            <p>Hundreds of entrepreneurs have chosen Referent Advisor. Our track record speaks for itself.</p>
+          </div>
+        </li>
+        <li>
+          <span class="check">✦</span>
+          <div>
+            <h5>Data Security & Confidentiality</h5>
+            <p>Your information is protected with strict privacy protocols at every step.</p>
+          </div>
+        </li>
+        <li>
+          <span class="check">✦</span>
+          <div>
+            <h5>Accurate & Verified Data</h5>
+            <p>We verify every detail to ensure zero errors in registrations and filings.</p>
+          </div>
+        </li>
+        <li>
+          <span class="check">✦</span>
+          <div>
+            <h5>Speed & Efficiency</h5>
+            <p>Fast turnaround without compromising on quality — because your time matters.</p>
+          </div>
+        </li>
+        <li>
+          <span class="check">✦</span>
+          <div>
+            <h5>Committed to Quality & Reliability</h5>
+            <p>SOP-driven processes ensure consistent, reliable outcomes every single time.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="why-right">
+      <h3>Our Numbers Tell the Story</h3>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="num">10+</div>
+          <div class="lbl">Years of Experience</div>
+        </div>
+        <div class="stat">
+          <div class="num">5000+</div>
+          <div class="lbl">Successful Cases</div>
+        </div>
+        <div class="stat">
+          <div class="num">2000+</div>
+          <div class="lbl">Happy Customers</div>
+        </div>
+        <div class="stat">
+          <div class="num">99.9%</div>
+          <div class="lbl">Accuracy Rate</div>
+        </div>
+      </div>
+      <p style="margin-top:28px; color:#9BB0C7; font-size:0.85rem; line-height:1.7;">Join the many entrepreneurs who've trusted Referent Advisor Pvt Ltd to launch and grow their businesses with confidence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-bg">
+  <p class="section-label">Real Business Owners. Real Results.</p>
+  <h2 class="section-title">What Our Clients Say</h2>
+  <div class="divider"></div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>Referent Advisor provided outstanding service for our tax compliances and filings. Their insights and customized approach were exactly what we needed.</blockquote>
+      <div class="testi-author">
+        <div class="avatar">N</div>
+        <div>
+          <h5>Neeldeep Das</h5>
+          <p>Co-founder, Bangalore</p>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>Their problem-solving speed and affordable prices made me a loyal customer. I highly, highly recommend Referent Advisor to any entrepreneur.</blockquote>
+      <div class="testi-author">
+        <div class="avatar">S</div>
+        <div>
+          <h5>Shivam Soni</h5>
+          <p>Founder, Noida</p>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>They resolved my long-standing tax rebate issue quickly and conveniently. Referent Advisor is now my go-to for all financial services.</blockquote>
+      <div class="testi-author">
+        <div class="avatar">P</div>
+        <div>
+          <h5>Preeti</h5>
+          <p>Analyst, Delhi</p>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>Their deep knowledge of tax laws and proactive compliance support helped us immensely. A team that truly delivers on its promises.</blockquote>
+      <div class="testi-author">
+        <div class="avatar">V</div>
+        <div>
+          <h5>Vishvaraj Singh</h5>
+          <p>Founder, Jaipur</p>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>Managing finances was a challenge until Referent Advisor stepped in. Their work is reliable, professional, and always delivered on time.</blockquote>
+      <div class="testi-author">
+        <div class="avatar">N</div>
+        <div>
+          <h5>Narendra Pandit</h5>
+          <p>Social Worker, Delhi</p>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <blockquote>Extremely knowledgeable and responsive. They've handled audits, automation, and compliance for me seamlessly. Highly recommended!</blockquote>
+      <div class="testi-author">
+        <div class="avatar">G</div>
+        <div>
+          <h5>CA Gourav Agarwal</h5>
+          <p>Senior Manager, Gurgaon</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BANNER -->
+<div class="stats-banner">
+  <div><div class="big">10+</div><div class="lbl">Years of Experience</div></div>
+  <div><div class="big">5000+</div><div class="lbl">Successful Consultancy</div></div>
+  <div><div class="big">20+</div><div class="lbl">Trusted Partners</div></div>
+  <div><div class="big">2000+</div><div class="lbl">Happy Customers</div></div>
+  <div><div class="big">99.9%</div><div class="lbl">Accuracy Rate</div></div>
+</div>
+
+<!-- FAQ -->
+<section id="faq">
+  <p class="section-label">Got Questions?</p>
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="divider"></div>
+  <p class="section-sub">Here are the answers to what our clients most commonly ask.</p>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">How do I place an order?<span class="icon">+</span></button>
+      <div class="faq-a">Simply visit the relevant service page, click "Get Started," fill in your details, and our team will reach out to guide you through the next steps.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">What if I'm unsure which service I need?<span class="icon">+</span></button>
+      <div class="faq-a">Reach out via the contact form or call us. Our advisors will understand your requirements and recommend the right service for your business.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">Is my personal information secure?<span class="icon">+</span></button>
+      <div class="faq-a">Absolutely. We follow strict data confidentiality protocols. Your information is never shared with unauthorized parties.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">How do I track my application status?<span class="icon">+</span></button>
+      <div class="faq-a">After placing your order, you'll receive regular updates via email and phone. You can also contact our support team for a real-time status update.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">Do you offer any guarantees or refunds?<span class="icon">+</span></button>
+      <div class="faq-a">Yes. We stand behind our services. Please refer to our Refund Policy for full details on eligibility and the refund process.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">Can I consult an expert before deciding?<span class="icon">+</span></button>
+      <div class="faq-a">Of course. We offer a free initial consultation so you can make an informed decision without any commitment.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">Do you provide ongoing support after the service?<span class="icon">+</span></button>
+      <div class="faq-a">Yes. We believe in long-term relationships. Our team remains available for follow-up questions, compliance reminders, and any future needs.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDERS NOTE -->
+<section class="founders-bg">
+  <div class="founders-inner">
+    <div class="founders-text">
+      <p class="section-label" style="color:var(--gold)">Founders' Note</p>
+      <h2 class="section-title">Why We Started Referent Advisor</h2>
+      <div class="divider"></div>
+      <p>We started Referent Advisor Pvt Ltd with a clear purpose — to simplify the journey of doing business, whether you're just starting out or already running a company.</p>
+      <p>Too often, we saw dreams delayed not because of a lack of passion or potential, but because of the burden of compliance, documentation, and statutory roadblocks.</p>
+      <p>For us, it's not just about compliance. It's about enabling businesses to start right — legally, confidently, and without friction. From the very first registration to day-to-day compliance and financial clarity, we're building solutions that grow with your business, every step of the way.</p>
+      <div class="sig">— The Founders, Referent Advisor Pvt Ltd</div>
+    </div>
+    <div class="founders-img-block">
+      <div class="f-stat">
+        <div class="num">5000+</div>
+        <div class="lbl">Businesses Launched</div>
+      </div>
+      <div class="f-stat">
+        <div class="num">10+</div>
+        <div class="lbl">Years of Experience</div>
+      </div>
+      <div class="f-stat">
+        <div class="num">2000+</div>
+        <div class="lbl">Happy Clients</div>
+      </div>
+      <div class="f-stat">
+        <div class="num">20+</div>
+        <div class="lbl">Trusted Partners</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULT FORM SECTION -->
+<section id="form" style="background: linear-gradient(135deg, var(--navy) 0%, #1C3150 100%); padding: 90px 60px;">
+  <div class="consult-wrap">
+    <!-- Left info -->
+    <div class="consult-left">
+      <p class="section-label" style="color:var(--gold)">Free Expert Consultation</p>
+      <h2 class="section-title" style="color:#fff;">Consult an Expert — <span style="color:var(--gold)">Today</span></h2>
+      <div class="divider"></div>
+      <p style="color:#B8C5D6; font-size:1rem; line-height:1.8; margin-bottom:28px;">
+        Tell us about your business needs. Our advisors will reach out within 24 hours with a clear plan — no commitment, no hidden fees.
+      </p>
+      <ul class="consult-perks">
+        <li><span class="cperk-icon">✦</span> 100% Free Initial Consultation</li>
+        <li><span class="cperk-icon">✦</span> Dedicated Advisor Assigned</li>
+        <li><span class="cperk-icon">✦</span> Response Within 24 Hours</li>
+        <li><span class="cperk-icon">✦</span> All Data Kept Confidential</li>
+      </ul>
+      <div class="consult-contact-row">
+        <a href="tel:+911234567890" class="consult-contact-link">📞 +91-12345 67890</a>
+        <a href="mailto:support@finaurt.com" class="consult-contact-link">✉️ support@finaurt.com</a>
+      </div>
+    </div>
+
+    <!-- Right form card -->
+    <div class="consult-card" id="contact">
+      <h3>Get a Free Callback</h3>
+      <p class="form-sub">Fill in your details and we'll get back to you shortly.</p>
+
+      <!-- SUCCESS MESSAGE (hidden by default) -->
+      <div id="form-success" class="form-success" style="display:none;">
+        <div class="success-icon">✓</div>
+        <h4>Request Received!</h4>
+        <p>Thank you! Our expert will contact you within 24 hours.</p>
+      </div>
+
+      <!-- THE FORM -->
+      <div id="lead-form">
+        <div class="field-row">
+          <div class="field-group">
+            <label for="fname">Full Name <span class="req">*</span></label>
+            <input type="text" id="fname" placeholder="Rahul Sharma" />
+            <span class="field-err" id="err-fname"></span>
+          </div>
+          <div class="field-group">
+            <label for="fphone">Phone Number <span class="req">*</span></label>
+            <input type="tel" id="fphone" placeholder="+91 98765 43210" maxlength="15"/>
+            <span class="field-err" id="err-fphone"></span>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="femail">Email Address <span class="req">*</span></label>
+          <input type="email" id="femail" placeholder="rahul@company.com" />
+          <span class="field-err" id="err-femail"></span>
+        </div>
+
+        <div class="field-group">
+          <label for="fservice">Service Interested In <span class="req">*</span></label>
+          <select id="fservice">
+            <option value="">— Select a Service —</option>
+            <option>Private Limited Registration</option>
+            <option>LLP Registration</option>
+            <option>OPC Registration</option>
+            <option>Trademark Registration</option>
+            <option>GST Registration</option>
+            <option>Udyam Registration</option>
+            <option>PAN Card Registration</option>
+            <option>ITR Filing</option>
+            <option>Other / Not Sure</option>
+          </select>
+          <span class="field-err" id="err-fservice"></span>
+        </div>
+
+        <div class="field-group">
+          <label for="fmsg">Message (Optional)</label>
+          <textarea id="fmsg" rows="3" placeholder="Tell us briefly about your business or requirements…"></textarea>
+        </div>
+
+        <button class="form-submit-btn" onclick="submitLead()">
+          <span id="btn-text">Request Free Consultation →</span>
+          <span id="btn-loader" style="display:none;">Sending…</span>
+        </button>
+
+        <p class="form-privacy">🔒 Your information is safe with us. We never share your data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="logo-footer">Referent Advisor Pvt Ltd</span>
+      <p class="tagline">Simplifying business formation, compliance, and financial advisory across India. Your trusted partner for every step of your entrepreneurial journey.</p>
+    </div>
+    <div>
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#">Private Limited</a></li>
+        <li><a href="#">LLP Registration</a></li>
+        <li><a href="#">OPC Registration</a></li>
+        <li><a href="#">Trademark</a></li>
+        <li><a href="#">GST Registration</a></li>
+        <li><a href="#">Udyam Registration</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">How It Works</a></li>
+        <li><a href="#">Testimonials</a></li>
+        <li><a href="#form">Consult an Expert</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h5>Contact Us</h5>
+      <p>📞 <a href="tel:+911234567890">+91-12345 67890</a></p>
+      <p>✉️ <a href="mailto:support@finaurt.com">support@finaurt.com</a></p>
+      <p style="margin-top:12px; line-height:1.7;">
+        Referent Advisor Pvt Ltd<br>
+        [Your Office Address],<br>
+        New Delhi, India
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© Copyright 2025. Referent Advisor Pvt Ltd. All Rights Reserved.</p>
+    <div class="footer-links">
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+      <a href="#">Refund Policy</a>
+    </div>
+  </div>
+  <p class="disclaimer">Disclaimer: This website is independently owned and operated by Referent Advisor Pvt Ltd, a private consulting firm. We are not affiliated with or endorsed by any government agency. All services offered are purely advisory in nature. Fees charged are for professional consulting and documentation support only.</p>
+</footer>
+
+<!-- FLOATING CHAT BUTTON -->
+<a href="#form" class="float-btn" title="Consult an Expert">
+  <span class="float-icon">💬</span>
+  <span class="float-label">Questions? Let's Chat</span>
+</a>
+
+<script>
+  /* ── FAQ Toggle ── */
+  function toggleFAQ(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  /* ── Lead Form Submission ── */
+  // All leads are emailed to: support@finaurt.com
+  // Uses mailto: as primary delivery; swap `FORM_ENDPOINT` with
+  // your Formspree / EmailJS / backend URL for server-side delivery.
+
+  const LEAD_EMAIL = 'support@finaurt.com';
+
+  function validateForm() {
+    let valid = true;
+    const clear = id => document.getElementById(id).textContent = '';
+    const err   = (id, msg) => { document.getElementById(id).textContent = msg; valid = false; };
+
+    ['err-fname','err-fphone','err-femail','err-fservice'].forEach(clear);
+
+    const name    = document.getElementById('fname').value.trim();
+    const phone   = document.getElementById('fphone').value.trim();
+    const email   = document.getElementById('femail').value.trim();
+    const service = document.getElementById('fservice').value;
+
+    if (!name)                          err('err-fname',    'Please enter your full name.');
+    if (!phone || phone.length < 7)     err('err-fphone',   'Please enter a valid phone number.');
+    if (!email || !email.includes('@')) err('err-femail',   'Please enter a valid email address.');
+    if (!service)                       err('err-fservice', 'Please select a service.');
+
+    return valid;
+  }
+
+  function submitLead() {
+    if (!validateForm()) return;
+
+    const name    = document.getElementById('fname').value.trim();
+    const phone   = document.getElementById('fphone').value.trim();
+    const email   = document.getElementById('femail').value.trim();
+    const service = document.getElementById('fservice').value;
+    const msg     = document.getElementById('fmsg').value.trim();
+
+    // Show loader
+    document.getElementById('btn-text').style.display   = 'none';
+    document.getElementById('btn-loader').style.display = 'inline';
+
+    // Build email body
+    const subject = encodeURIComponent(`New Lead: ${service} — ${name}`);
+    const body    = encodeURIComponent(
+      `New consultation request from the Referent Advisor website:\n\n` +
+      `Name    : ${name}\n` +
+      `Phone   : ${phone}\n` +
+      `Email   : ${email}\n` +
+      `Service : ${service}\n` +
+      `Message : ${msg || '(none)'}\n\n` +
+      `— Sent via referentadvisor.com contact form`
+    );
+
+    // Open the user's mail client pre-filled, targeting the lead email
+    const mailtoLink = `mailto:${LEAD_EMAIL}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
+
+    // After short delay, show success state on page
+    setTimeout(() => {
+      document.getElementById('lead-form').style.display    = 'none';
+      document.getElementById('form-success').style.display = 'flex';
+      document.getElementById('btn-text').style.display     = 'inline';
+      document.getElementById('btn-loader').style.display   = 'none';
+    }, 1200);
+  }
+</script>
+
+<style>
+  /* ── CONSULT SECTION ── */
+  .consult-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .consult-perks {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 12px;
+    margin-bottom: 28px;
+  }
+  .consult-perks li {
+    color: #B8C5D6; font-size: 0.9rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .cperk-icon { color: var(--gold); font-size: 0.75rem; }
+  .consult-contact-row {
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .consult-contact-link {
+    color: var(--gold-light); text-decoration: none;
+    font-size: 0.9rem; font-weight: 500;
+    transition: color .2s;
+  }
+  .consult-contact-link:hover { color: var(--white); }
+
+  /* ── FORM CARD ── */
+  .consult-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 36px 32px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  }
+  .consult-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .form-sub { font-size: 0.85rem; color: var(--mid); margin-bottom: 24px; }
+
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field-group { display: flex; flex-direction: column; margin-bottom: 16px; }
+  .field-group label {
+    font-size: 0.8rem; font-weight: 600; color: var(--navy);
+    margin-bottom: 6px; letter-spacing: 0.02em;
+  }
+  .req { color: #E53E3E; }
+  .field-group input,
+  .field-group select,
+  .field-group textarea {
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--navy);
+    background: var(--cream);
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+    resize: vertical;
+  }
+  .field-group input:focus,
+  .field-group select:focus,
+  .field-group textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+    background: var(--white);
+  }
+  .field-err { color: #E53E3E; font-size: 0.76rem; margin-top: 4px; min-height: 16px; }
+
+  .form-submit-btn {
+    width: 100%;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--navy);
+    border: none; border-radius: 10px;
+    padding: 14px 24px;
+    font-size: 0.95rem; font-weight: 700;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: opacity .2s, transform .15s;
+    letter-spacing: 0.01em;
+  }
+  .form-submit-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+  .form-submit-btn:active { transform: translateY(0); }
+
+  .form-privacy {
+    text-align: center; font-size: 0.76rem;
+    color: var(--mid); margin-top: 12px;
+  }
+
+  /* Success state */
+  .form-success {
+    flex-direction: column; align-items: center;
+    text-align: center; padding: 32px 0;
+    gap: 12px;
+  }
+  .success-icon {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy); font-size: 1.8rem; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .form-success h4 { font-size: 1.2rem; color: var(--navy); font-family: 'Playfair Display', serif; }
+  .form-success p  { font-size: 0.88rem; color: var(--mid); }
+
+  /* ── FLOATING BUTTON ── */
+  .float-btn {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    display: flex; align-items: center; gap: 10px;
+    background: var(--navy);
+    border: 2px solid var(--gold);
+    color: var(--white);
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.85rem; font-weight: 600;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+    transition: background .2s, transform .2s;
+  }
+  .float-btn:hover { background: var(--gold); color: var(--navy); transform: translateY(-2px); }
+  .float-icon { font-size: 1.1rem; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .consult-wrap { grid-template-columns: 1fr; gap: 40px; }
+    #form { padding: 60px 24px; }
+    .field-row { grid-template-columns: 1fr; }
+    .float-label { display: none; }
+    .float-btn { padding: 14px; border-radius: 50%; }
+  }
+</style>
+</body>
+</html>
